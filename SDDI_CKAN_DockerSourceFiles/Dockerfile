@@ -1,5 +1,5 @@
 # See CKAN docs on installation from Docker Compose on usage
-FROM debian:jessie
+FROM debian:buster
 MAINTAINER Open Knowledge
 
 # Install required system packages
@@ -75,6 +75,7 @@ EXPOSE 5000
 
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install ckantoolkit
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install ckanapi
+RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -U python-slugify==4.0.0
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install geoalchemy2
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install git+https://github.com/eawag-rdm/lucparser
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install lxml
